@@ -1,21 +1,25 @@
-const readline = require('readline-sync');
 
 const path = require('path');
+const path1 = path.parse("c:/Users/Stacey Tadrus/OneDrive/Documents/GitHub/launchcode/practice/practice-importing-modules-Stacey-T/task-manager/taskManager");
+console.log(path1);
+const path2 = path.parse("c:/Users/Stacey Tadrus/OneDrive/Documents/GitHub/launchcode/practice/practice-importing-modules-Stacey-T/task-manager/fileHandler");
+console.log(path2);
+
 const taskManager = require('./taskManager');
 const fileHandler = require('./fileHandler');
 
-const tasks =[];
-// let i = "";
-let task = readline.question('Please enter a task: ');
-//using a while loop will continue to loop through the tasks array. 
-for (let task of tasks){
-    task += task;
-}
 
-// console.log(taskManager.addTask(tasks, task));
-console.log(tasks.push(task))
+let tasks = [];
+let task = ["clean room, wash clothes, cook dinner"];
+let filePath = "tasks.json"
+
+
+
+console.log(fileHandler.loadTasks(filePath));
+console.log(taskManager.addTask(tasks, task));
+// console.log(taskManager.addTask(tasks,task));
 console.log(taskManager.listTasks(tasks));
-// fileHandler.saveTasks(filePath, tasks);
+console.log(fileHandler.saveTasks(filePath, tasks));
 
 
 
